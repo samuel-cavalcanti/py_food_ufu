@@ -1,0 +1,21 @@
+syntax = "proto3";
+
+package client;
+
+// The insert client service definition.
+service InsertClientService {
+  // Sends a greeting
+  rpc insertNewClient(InsertClientRequest) returns (InsertNewClientResponse) {}
+}
+
+// The request message containing the user's name.
+message InsertClientRequest {
+  string name = 1;
+  string cpf = 2;
+  string id = 3;
+}
+
+// The response message containing the greetings
+message InsertNewClientResponse {
+  string result = 1;
+}
