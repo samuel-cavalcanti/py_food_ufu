@@ -11,7 +11,8 @@ class InsertClientStub:
         self.stub = InsertClientServiceStub(channel)
 
     def insert(self, client) -> str:
-        client_request = InsertClientRequest(name=client.name, cpf=client.cpf, id=client.id)
+        client_request = InsertClientRequest(name=client.name, cpf=client.cpf, id=client.id,
+                                             favoriteFood=client.favorite_food)
 
         try:
             response = self.stub.insertNewClient(client_request)

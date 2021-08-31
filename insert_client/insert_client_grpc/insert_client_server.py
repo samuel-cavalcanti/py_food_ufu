@@ -12,14 +12,19 @@ class InsertClientServer(InsertClientServiceServicer):
 
     def insertNewClient(self, request, context):
         """Retorna o resultado da criação do """
-        content = {'name': request.name, 'cpf': request.cpf, 'client_id': request.id}
+        content = {'name': request.name,
+                   'cpf': request.cpf,
+                   'client_id': request.id,
+                   'favorite_food': request.favoriteFood}
+
         return InsertNewClientResponse(result=self.callback(content))
 
     def serve(self):
         server = grpc.server(futures.ThreadPoolExecutor(max_workers=10))
         add_InsertClientServiceServicer_to_server(self, server)
-
+        port = '50052'
+        print(f'listening {port}')
         '''Porta está hard coded :O'''
-        server.add_insecure_port('[::]:50052')
+        server.add_insecure_port(f'[::]:{port}')
         server.start()
         server.wait_for_termination()

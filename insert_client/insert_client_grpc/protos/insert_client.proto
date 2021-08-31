@@ -13,6 +13,7 @@ message InsertClientRequest {
   string name = 1;
   string cpf = 2;
   string id = 3;
+  string favoriteFood = 4;
 }
 
 // The response message containing the greetings

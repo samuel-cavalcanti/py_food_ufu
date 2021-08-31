@@ -7,7 +7,8 @@ table = dict()
 
 
 def insert_client(content: dict) -> str:
-    client = Client(name=content['name'], cpf=content['cpf'], client_id=content['client_id'])
+    client = Client(name=content['name'], cpf=content['cpf'], client_id=content['client_id'],
+                    favorite_food=content['favorite_food'])
 
     if table.get(client.id, None):
         raise Exception('Cliente já existe!!!')

@@ -19,7 +19,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   syntax='proto3',
   serialized_options=None,
   create_key=_descriptor._internal_create_key,
-  serialized_pb=b'\n\x13insert_client.proto\x12\x06\x63lient\"<\n\x13InsertClientRequest\x12\x0c\n\x04name\x18\x01 \x01(\t\x12\x0b\n\x03\x63pf\x18\x02 \x01(\t\x12\n\n\x02id\x18\x03 \x01(\t\")\n\x17InsertNewClientResponse\x12\x0e\n\x06result\x18\x01 \x01(\t2h\n\x13InsertClientService\x12Q\n\x0finsertNewClient\x12\x1b.client.InsertClientRequest\x1a\x1f.client.InsertNewClientResponse\"\x00\x62\x06proto3'
+  serialized_pb=b'\n\x13insert_client.proto\x12\x06\x63lient\"R\n\x13InsertClientRequest\x12\x0c\n\x04name\x18\x01 \x01(\t\x12\x0b\n\x03\x63pf\x18\x02 \x01(\t\x12\n\n\x02id\x18\x03 \x01(\t\x12\x14\n\x0c\x66\x61voriteFood\x18\x04 \x01(\t\")\n\x17InsertNewClientResponse\x12\x0e\n\x06result\x18\x01 \x01(\t2h\n\x13InsertClientService\x12Q\n\x0finsertNewClient\x12\x1b.client.InsertClientRequest\x1a\x1f.client.InsertNewClientResponse\"\x00\x62\x06proto3'
 )
 
 
@@ -54,6 +54,13 @@ _INSERTCLIENTREQUEST = _descriptor.Descriptor(
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='favoriteFood', full_name='client.InsertClientRequest.favoriteFood', index=3,
+      number=4, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
   ],
   extensions=[
   ],
@@ -67,7 +74,7 @@ _INSERTCLIENTREQUEST = _descriptor.Descriptor(
   oneofs=[
   ],
   serialized_start=31,
-  serialized_end=91,
+  serialized_end=113,
 )
 
 
@@ -98,8 +105,8 @@ _INSERTNEWCLIENTRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=93,
-  serialized_end=134,
+  serialized_start=115,
+  serialized_end=156,
 )
 
 DESCRIPTOR.message_types_by_name['InsertClientRequest'] = _INSERTCLIENTREQUEST
@@ -129,8 +136,8 @@ _INSERTCLIENTSERVICE = _descriptor.ServiceDescriptor(
   index=0,
   serialized_options=None,
   create_key=_descriptor._internal_create_key,
-  serialized_start=136,
-  serialized_end=240,
+  serialized_start=158,
+  serialized_end=262,
   methods=[
   _descriptor.MethodDescriptor(
     name='insertNewClient',

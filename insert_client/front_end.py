@@ -20,7 +20,7 @@ def main():
 
     client_id = hashlib.sha256(f'{args.name}-{args.cpf} + um segredo :O'.encode()).hexdigest()
 
-    client = Client(name=args.name, cpf=args.cpf, client_id=client_id)
+    client = Client(name=args.name, cpf=args.cpf, client_id=client_id, favorite_food="")
 
     stub = InsertClientStub()
 
