@@ -6,9 +6,9 @@ from mosquito_server import MosquittoClient
 table = dict()
 
 
-def insert_client(content: dict) -> str:
-    client = Client(name=content['name'], cpf=content['cpf'], client_id=content['client_id'],
-                    favorite_food=content['favorite_food'])
+def insert_client(request) -> str:
+    client = Client(name=request.name, cpf=request.cpf, client_id=request.id,
+                    favorite_food=request.favorite_food)
 
     if table.get(client.id, None):
         raise Exception('Cliente já existe!!!')

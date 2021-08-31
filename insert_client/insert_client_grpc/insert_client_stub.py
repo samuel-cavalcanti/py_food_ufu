@@ -1,3 +1,5 @@
+import dataclasses
+
 import grpc
 
 from .generated_classes.insert_client_pb2_grpc import InsertClientServiceStub
@@ -11,8 +13,7 @@ class InsertClientStub:
         self.stub = InsertClientServiceStub(channel)
 
     def insert(self, client) -> str:
-        client_request = InsertClientRequest(name=client.name, cpf=client.cpf, id=client.id,
-                                             favoriteFood=client.favorite_food)
+        client_request = InsertClientRequest(**dataclasses.asdict(client))
 
         try:
             response = self.stub.insertNewClient(client_request)

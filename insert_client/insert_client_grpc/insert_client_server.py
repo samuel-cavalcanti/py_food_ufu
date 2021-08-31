@@ -11,13 +11,7 @@ class InsertClientServer(InsertClientServiceServicer):
         self.callback = callback_function
 
     def insertNewClient(self, request, context):
-        """Retorna o resultado da criação do """
-        content = {'name': request.name,
-                   'cpf': request.cpf,
-                   'client_id': request.id,
-                   'favorite_food': request.favoriteFood}
-
-        return InsertNewClientResponse(result=self.callback(content))
+        return InsertNewClientResponse(result=self.callback(request))
 
     def serve(self):
         server = grpc.server(futures.ThreadPoolExecutor(max_workers=10))
