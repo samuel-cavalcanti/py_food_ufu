@@ -1,7 +1,6 @@
 from dataclasses import dataclass
 
 
-
 @dataclass
 class Client:
     '''Representação do meu cliente para que seja necessário criá-lo apatir do admin '''
@@ -19,6 +18,11 @@ class Client:
 
     def __str__(self):
         return f'name:{self.name} cpf:{self.cpf} id:{self.id} food:{self.favorite_food}'
+
+    def __eq__(self, other):
+        assert isinstance(other, Client)
+
+        return self.id == other.id and self.cpf == other.cpf and self.name == other.name and self.favorite_food == other.favorite_food
 
     def copy_with(self, client):
         name = client.name if client.name else self.name

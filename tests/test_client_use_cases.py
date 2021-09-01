@@ -8,6 +8,8 @@ from client_use_cases import insert_client, update_client, search_by_id, delete_
 class TestClientUseCases(unittest.TestCase):
     def test_insert(self):
         client = Client(id='321312', favorite_food='arroz', cpf='123+1238+212', name='joao')
+        client_2 = Client(id='321312', favorite_food='arroz', cpf='123+1238+212', name='joao')
+        self.assertEqual(client, client_2)
         result = insert_client(client)
 
         self.assertEqual(client, result)
