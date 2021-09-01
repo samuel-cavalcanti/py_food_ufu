@@ -17,7 +17,7 @@ class Client:
         self.favorite_food = favorite_food
 
     def __str__(self):
-        return f'name:{self.name} cpf:{self.cpf} id:{self.id}'
+        return f'name:{self.name} cpf:{self.cpf} id:{self.id} food:{self.favorite_food}'
 
     def copy_with(self, client):
         name = client.name if client.name else self.name

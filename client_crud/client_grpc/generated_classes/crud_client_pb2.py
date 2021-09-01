@@ -19,75 +19,43 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   syntax='proto3',
   serialized_options=None,
   create_key=_descriptor._internal_create_key,
-  serialized_pb=b'\n\x11\x63rud_client.proto\x12\x06\x63lient\"!\n\x13SearchClientRequest\x12\n\n\x02id\x18\x01 \x01(\t\"F\n\x06\x43lient\x12\x0c\n\x04name\x18\x01 \x01(\t\x12\x0b\n\x03\x63pf\x18\x02 \x01(\t\x12\n\n\x02id\x18\x03 \x01(\t\x12\x15\n\rfavorite_food\x18\x04 \x01(\t2\xe9\x01\n\x11\x43rudClientService\x12*\n\x06insert\x12\x0e.client.Client\x1a\x0e.client.Client\"\x00\x12*\n\x06update\x12\x0e.client.Client\x1a\x0e.client.Client\"\x00\x12=\n\x0csearch_by_id\x12\x1b.client.SearchClientRequest\x1a\x0e.client.Client\"\x00\x12=\n\x0c\x64\x65lete_by_id\x12\x1b.client.SearchClientRequest\x1a\x0e.client.Client\"\x00\x62\x06proto3'
+  serialized_pb=b'\n\x11\x63rud_client.proto\x12\x06\x63lient\"J\n\nGrpcClient\x12\x0c\n\x04name\x18\x01 \x01(\t\x12\x0b\n\x03\x63pf\x18\x02 \x01(\t\x12\n\n\x02id\x18\x03 \x01(\t\x12\x15\n\rfavorite_food\x18\x04 \x01(\t2\xef\x01\n\x11\x43rudClientService\x12\x32\n\x06insert\x12\x12.client.GrpcClient\x1a\x12.client.GrpcClient\"\x00\x12\x32\n\x06update\x12\x12.client.GrpcClient\x1a\x12.client.GrpcClient\"\x00\x12\x38\n\x0csearch_by_id\x12\x12.client.GrpcClient\x1a\x12.client.GrpcClient\"\x00\x12\x38\n\x0c\x64\x65lete_by_id\x12\x12.client.GrpcClient\x1a\x12.client.GrpcClient\"\x00\x62\x06proto3'
 )
 
 
 
 
-_SEARCHCLIENTREQUEST = _descriptor.Descriptor(
-  name='SearchClientRequest',
-  full_name='client.SearchClientRequest',
+_GRPCCLIENT = _descriptor.Descriptor(
+  name='GrpcClient',
+  full_name='client.GrpcClient',
   filename=None,
   file=DESCRIPTOR,
   containing_type=None,
   create_key=_descriptor._internal_create_key,
   fields=[
     _descriptor.FieldDescriptor(
-      name='id', full_name='client.SearchClientRequest.id', index=0,
-      number=1, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=b"".decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-  ],
-  extensions=[
-  ],
-  nested_types=[],
-  enum_types=[
-  ],
-  serialized_options=None,
-  is_extendable=False,
-  syntax='proto3',
-  extension_ranges=[],
-  oneofs=[
-  ],
-  serialized_start=29,
-  serialized_end=62,
-)
-
-
-_CLIENT = _descriptor.Descriptor(
-  name='Client',
-  full_name='client.Client',
-  filename=None,
-  file=DESCRIPTOR,
-  containing_type=None,
-  create_key=_descriptor._internal_create_key,
-  fields=[
-    _descriptor.FieldDescriptor(
-      name='name', full_name='client.Client.name', index=0,
+      name='name', full_name='client.GrpcClient.name', index=0,
       number=1, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=b"".decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='cpf', full_name='client.Client.cpf', index=1,
+      name='cpf', full_name='client.GrpcClient.cpf', index=1,
       number=2, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=b"".decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='id', full_name='client.Client.id', index=2,
+      name='id', full_name='client.GrpcClient.id', index=2,
       number=3, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=b"".decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='favorite_food', full_name='client.Client.favorite_food', index=3,
+      name='favorite_food', full_name='client.GrpcClient.favorite_food', index=3,
       number=4, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=b"".decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
@@ -105,27 +73,19 @@ _CLIENT = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=64,
-  serialized_end=134,
+  serialized_start=29,
+  serialized_end=103,
 )
 
-DESCRIPTOR.message_types_by_name['SearchClientRequest'] = _SEARCHCLIENTREQUEST
-DESCRIPTOR.message_types_by_name['Client'] = _CLIENT
+DESCRIPTOR.message_types_by_name['GrpcClient'] = _GRPCCLIENT
 _sym_db.RegisterFileDescriptor(DESCRIPTOR)
 
-SearchClientRequest = _reflection.GeneratedProtocolMessageType('SearchClientRequest', (_message.Message,), {
-  'DESCRIPTOR' : _SEARCHCLIENTREQUEST,
+GrpcClient = _reflection.GeneratedProtocolMessageType('GrpcClient', (_message.Message,), {
+  'DESCRIPTOR' : _GRPCCLIENT,
   '__module__' : 'crud_client_pb2'
-  # @@protoc_insertion_point(class_scope:client.SearchClientRequest)
+  # @@protoc_insertion_point(class_scope:client.GrpcClient)
   })
-_sym_db.RegisterMessage(SearchClientRequest)
-
-Client = _reflection.GeneratedProtocolMessageType('Client', (_message.Message,), {
-  'DESCRIPTOR' : _CLIENT,
-  '__module__' : 'crud_client_pb2'
-  # @@protoc_insertion_point(class_scope:client.Client)
-  })
-_sym_db.RegisterMessage(Client)
+_sym_db.RegisterMessage(GrpcClient)
 
 
 
@@ -136,16 +96,16 @@ _CRUDCLIENTSERVICE = _descriptor.ServiceDescriptor(
   index=0,
   serialized_options=None,
   create_key=_descriptor._internal_create_key,
-  serialized_start=137,
-  serialized_end=370,
+  serialized_start=106,
+  serialized_end=345,
   methods=[
   _descriptor.MethodDescriptor(
     name='insert',
     full_name='client.CrudClientService.insert',
     index=0,
     containing_service=None,
-    input_type=_CLIENT,
-    output_type=_CLIENT,
+    input_type=_GRPCCLIENT,
+    output_type=_GRPCCLIENT,
     serialized_options=None,
     create_key=_descriptor._internal_create_key,
   ),
@@ -154,8 +114,8 @@ _CRUDCLIENTSERVICE = _descriptor.ServiceDescriptor(
     full_name='client.CrudClientService.update',
     index=1,
     containing_service=None,
-    input_type=_CLIENT,
-    output_type=_CLIENT,
+    input_type=_GRPCCLIENT,
+    output_type=_GRPCCLIENT,
     serialized_options=None,
     create_key=_descriptor._internal_create_key,
   ),
@@ -164,8 +124,8 @@ _CRUDCLIENTSERVICE = _descriptor.ServiceDescriptor(
     full_name='client.CrudClientService.search_by_id',
     index=2,
     containing_service=None,
-    input_type=_SEARCHCLIENTREQUEST,
-    output_type=_CLIENT,
+    input_type=_GRPCCLIENT,
+    output_type=_GRPCCLIENT,
     serialized_options=None,
     create_key=_descriptor._internal_create_key,
   ),
@@ -174,8 +134,8 @@ _CRUDCLIENTSERVICE = _descriptor.ServiceDescriptor(
     full_name='client.CrudClientService.delete_by_id',
     index=3,
     containing_service=None,
-    input_type=_SEARCHCLIENTREQUEST,
-    output_type=_CLIENT,
+    input_type=_GRPCCLIENT,
+    output_type=_GRPCCLIENT,
     serialized_options=None,
     create_key=_descriptor._internal_create_key,
   ),

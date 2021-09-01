@@ -2,14 +2,8 @@ from client_crud import Client
 from cache import SingletonCache, CacheException
 
 
-def search_by_id(request):
-    '''
-        Talvez, a transformação do request em um estrutura como Client
-        seja responsabilidade da camada inferior
-    '''
-    print("search_by_id: ", request)
-    client = Client(name=request.name, cpf=request.cpf, client_id=request.id,
-                    favorite_food=request.favorite_food)
+def search_by_id(client: Client) -> Client:
+    print("search_by_id: ", client)
 
     cache = SingletonCache()
 

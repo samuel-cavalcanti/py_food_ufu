@@ -5,21 +5,20 @@ package client;
 // The insert client service definition.
 service CrudClientService {
   // insert new client
-  rpc insert(Client) returns (Client) {}
+  rpc insert(GrpcClient) returns (GrpcClient) {}
   // update  client
-  rpc update(Client) returns (Client) {}
+  rpc update(GrpcClient) returns (GrpcClient) {}
   // search client by ID
-  rpc search_by_id(SearchClientRequest) returns (Client) {}
+
+  rpc search_by_id(GrpcClient) returns (GrpcClient) {}
   // delete Client by ID
-  rpc delete_by_id(SearchClientRequest) returns (Client) {}
+  rpc delete_by_id(GrpcClient) returns (GrpcClient) {}
 }
 
 
-message SearchClientRequest{
-  string id = 1;
-}
+Segundo Jassy, a pandemia alterSegundo Jassy, a pandemia alter
 
-message Client{
+message GrpcClient{
   string name = 1;
   string cpf = 2;
   string id = 3;

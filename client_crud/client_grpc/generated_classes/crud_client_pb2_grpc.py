@@ -17,23 +17,23 @@ class CrudClientServiceStub(object):
         """
         self.insert = channel.unary_unary(
                 '/client.CrudClientService/insert',
-                request_serializer=crud__client__pb2.Client.SerializeToString,
-                response_deserializer=crud__client__pb2.Client.FromString,
+                request_serializer=crud__client__pb2.GrpcClient.SerializeToString,
+                response_deserializer=crud__client__pb2.GrpcClient.FromString,
                 )
         self.update = channel.unary_unary(
                 '/client.CrudClientService/update',
-                request_serializer=crud__client__pb2.Client.SerializeToString,
-                response_deserializer=crud__client__pb2.Client.FromString,
+                request_serializer=crud__client__pb2.GrpcClient.SerializeToString,
+                response_deserializer=crud__client__pb2.GrpcClient.FromString,
                 )
         self.search_by_id = channel.unary_unary(
                 '/client.CrudClientService/search_by_id',
-                request_serializer=crud__client__pb2.SearchClientRequest.SerializeToString,
-                response_deserializer=crud__client__pb2.Client.FromString,
+                request_serializer=crud__client__pb2.GrpcClient.SerializeToString,
+                response_deserializer=crud__client__pb2.GrpcClient.FromString,
                 )
         self.delete_by_id = channel.unary_unary(
                 '/client.CrudClientService/delete_by_id',
-                request_serializer=crud__client__pb2.SearchClientRequest.SerializeToString,
-                response_deserializer=crud__client__pb2.Client.FromString,
+                request_serializer=crud__client__pb2.GrpcClient.SerializeToString,
+                response_deserializer=crud__client__pb2.GrpcClient.FromString,
                 )
 
 
@@ -74,23 +74,23 @@ def add_CrudClientServiceServicer_to_server(servicer, server):
     rpc_method_handlers = {
             'insert': grpc.unary_unary_rpc_method_handler(
                     servicer.insert,
-                    request_deserializer=crud__client__pb2.Client.FromString,
-                    response_serializer=crud__client__pb2.Client.SerializeToString,
+                    request_deserializer=crud__client__pb2.GrpcClient.FromString,
+                    response_serializer=crud__client__pb2.GrpcClient.SerializeToString,
             ),
             'update': grpc.unary_unary_rpc_method_handler(
                     servicer.update,
-                    request_deserializer=crud__client__pb2.Client.FromString,
-                    response_serializer=crud__client__pb2.Client.SerializeToString,
+                    request_deserializer=crud__client__pb2.GrpcClient.FromString,
+                    response_serializer=crud__client__pb2.GrpcClient.SerializeToString,
             ),
             'search_by_id': grpc.unary_unary_rpc_method_handler(
                     servicer.search_by_id,
-                    request_deserializer=crud__client__pb2.SearchClientRequest.FromString,
-                    response_serializer=crud__client__pb2.Client.SerializeToString,
+                    request_deserializer=crud__client__pb2.GrpcClient.FromString,
+                    response_serializer=crud__client__pb2.GrpcClient.SerializeToString,
             ),
             'delete_by_id': grpc.unary_unary_rpc_method_handler(
                     servicer.delete_by_id,
-                    request_deserializer=crud__client__pb2.SearchClientRequest.FromString,
-                    response_serializer=crud__client__pb2.Client.SerializeToString,
+                    request_deserializer=crud__client__pb2.GrpcClient.FromString,
+                    response_serializer=crud__client__pb2.GrpcClient.SerializeToString,
             ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
@@ -115,8 +115,8 @@ class CrudClientService(object):
             timeout=None,
             metadata=None):
         return grpc.experimental.unary_unary(request, target, '/client.CrudClientService/insert',
-            crud__client__pb2.Client.SerializeToString,
-            crud__client__pb2.Client.FromString,
+            crud__client__pb2.GrpcClient.SerializeToString,
+            crud__client__pb2.GrpcClient.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
@@ -132,8 +132,8 @@ class CrudClientService(object):
             timeout=None,
             metadata=None):
         return grpc.experimental.unary_unary(request, target, '/client.CrudClientService/update',
-            crud__client__pb2.Client.SerializeToString,
-            crud__client__pb2.Client.FromString,
+            crud__client__pb2.GrpcClient.SerializeToString,
+            crud__client__pb2.GrpcClient.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
@@ -149,8 +149,8 @@ class CrudClientService(object):
             timeout=None,
             metadata=None):
         return grpc.experimental.unary_unary(request, target, '/client.CrudClientService/search_by_id',
-            crud__client__pb2.SearchClientRequest.SerializeToString,
-            crud__client__pb2.Client.FromString,
+            crud__client__pb2.GrpcClient.SerializeToString,
+            crud__client__pb2.GrpcClient.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
@@ -166,7 +166,7 @@ class CrudClientService(object):
             timeout=None,
             metadata=None):
         return grpc.experimental.unary_unary(request, target, '/client.CrudClientService/delete_by_id',
-            crud__client__pb2.SearchClientRequest.SerializeToString,
-            crud__client__pb2.Client.FromString,
+            crud__client__pb2.GrpcClient.SerializeToString,
+            crud__client__pb2.GrpcClient.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)

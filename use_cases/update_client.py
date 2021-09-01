@@ -3,10 +3,8 @@ from cache import SingletonCache, CacheException
 from mosquito_client import MosquittoClient
 
 
-def update_client(request):
-    print("update_client: ", request)
-    client = Client(name=request.name, cpf=request.cpf, client_id=request.id,
-                    favorite_food=request.favorite_food)
+def update_client(client: Client) -> Client:
+    print("update_client: ", client)
 
     cache = SingletonCache()
 
