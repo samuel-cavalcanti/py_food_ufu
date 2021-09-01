@@ -18,3 +18,11 @@ class Client:
 
     def __str__(self):
         return f'name:{self.name} cpf:{self.cpf} id:{self.id}'
+
+    def copy_with(self, client):
+        name = client.name if client.name else self.name
+        cpf = client.cpf if client.cpf else self.cpf
+        cid = client.id if client.id else self.id
+        food = client.favorite_food if client.favorite_food else self.favorite_food
+
+        return Client(name=name, cpf=cpf, client_id=cid, favorite_food=food)

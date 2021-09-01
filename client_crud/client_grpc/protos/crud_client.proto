@@ -1,0 +1,27 @@
+syntax = "proto3";
+
+package client;
+
+// The insert client service definition.
+service CrudClientService {
+  // insert new client
+  rpc insert(Client) returns (Client) {}
+  // update  client
+  rpc update(Client) returns (Client) {}
+  // search client by ID
+  rpc search_by_id(SearchClientRequest) returns (Client) {}
+  // delete Client by ID
+  rpc delete_by_id(SearchClientRequest) returns (Client) {}
+}
+
+
+message SearchClientRequest{
+  string id = 1;
+}
+
+message Client{
+  string name = 1;
+  string cpf = 2;
+  string id = 3;
+  string favorite_food = 4;
+}

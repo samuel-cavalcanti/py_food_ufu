@@ -12,5 +12,4 @@ class MosquittoClient:
 
     def publish_client(self, client):
         client_json = json.dumps(dataclasses.asdict(client))
-        print(f"client:{client} json:{client_json}")
         self.__client.publish(self.__topic, client_json)
