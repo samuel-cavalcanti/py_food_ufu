@@ -19,7 +19,7 @@ class ClientGrpcServer(CrudClientService):
 
     @staticmethod
     def __request_to_client(request) -> Client:
-        return Client(name=request.name, cpf=request.cpf, client_id=request.id,
+        return Client(name=request.name, cpf=request.cpf, id=request.id,
                       favorite_food=request.favorite_food)
 
     def insert(self, request, context):

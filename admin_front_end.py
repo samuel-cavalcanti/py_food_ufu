@@ -23,7 +23,7 @@ def insert_client(client: Client):
 
     client_id = hashlib.sha256(f'{client.name}-{client.cpf} + um segredo :O'.encode()).hexdigest()
 
-    new_client = Client(name=client.name, cpf=client.cpf, client_id=client_id, favorite_food=client.favorite_food)
+    new_client = Client(name=client.name, cpf=client.cpf, id=client_id, favorite_food=client.favorite_food)
 
     stub = ClientGrpcStub()
 
@@ -72,7 +72,7 @@ def main():
     parser = build_parser(list(actions.keys()))
     args = parser.parse_args()
     client = Client(name=args.name, cpf=args.cpf,
-                    client_id=args.cid, favorite_food=args.comida)
+                    id=args.cid, favorite_food=args.comida)
 
     actions[args.action](client)
 

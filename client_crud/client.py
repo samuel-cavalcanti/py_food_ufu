@@ -1,4 +1,5 @@
 from dataclasses import dataclass
+import json
 
 
 @dataclass
@@ -10,10 +11,10 @@ class Client:
     id: str
     favorite_food: str
 
-    def __init__(self, name: str, cpf, client_id: str, favorite_food: str):
+    def __init__(self, name: str, cpf, id: str, favorite_food: str):
         self.name = name
         self.cpf = cpf
-        self.id = client_id
+        self.id = id
         self.favorite_food = favorite_food
 
     def __str__(self):
@@ -25,4 +26,4 @@ class Client:
         cid = client.id if client.id else self.id
         food = client.favorite_food if client.favorite_food else self.favorite_food
 
-        return Client(name=name, cpf=cpf, client_id=cid, favorite_food=food)
+        return Client(name=name, cpf=cpf, id=cid, favorite_food=food)
