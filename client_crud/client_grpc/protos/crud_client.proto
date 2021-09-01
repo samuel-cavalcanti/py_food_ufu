@@ -15,9 +15,6 @@ service CrudClientService {
   rpc delete_by_id(GrpcClient) returns (GrpcClient) {}
 }
 
-
-Segundo Jassy, a pandemia alterSegundo Jassy, a pandemia alter
-
 message GrpcClient{
   string name = 1;
   string cpf = 2;
