@@ -1,13 +1,14 @@
 import json
 
 from client_crud import Client
-from cache import SingletonCache, CacheException
+from cache import CacheException
+from client_crud import SingletonClientCache
 
 
 def delete_by_id(client: Client) -> Client:
     print("delete_by_id: ", client)
 
-    cache = SingletonCache()
+    cache = SingletonClientCache()
 
     c: str = cache.get(client.id)
 

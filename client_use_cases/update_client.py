@@ -1,15 +1,15 @@
 import dataclasses
 import json
 
-from client_crud import Client
-from cache import SingletonCache, CacheException
+from client_crud import Client, SingletonClientCache
+from cache import CacheException
 from mosquito_client import MosquittoClient
 
 
 def update_client(client: Client) -> Client:
     print("update_client: ", client)
 
-    cache = SingletonCache()
+    cache = SingletonClientCache()
 
     old_client_json: str = cache.get(client.id)
 

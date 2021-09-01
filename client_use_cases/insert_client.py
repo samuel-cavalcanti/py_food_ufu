@@ -1,9 +1,10 @@
 import dataclasses
 import json
 
-from cache import SingletonCache, CacheException
+from cache import CacheException
 from client_crud import Client
 from mosquito_client import MosquittoClient
+from client_crud.client_cache import SingletonClientCache
 
 
 def insert_client(request_client: Client) -> Client:
@@ -13,7 +14,7 @@ def insert_client(request_client: Client) -> Client:
     Não deveria confiar que o request client está corretamente preenchido
     '''
 
-    cache = SingletonCache()
+    cache = SingletonClientCache()
 
     json_client = json.dumps(dataclasses.asdict(request_client))
     cache.add(request_client.id, json_client)

@@ -1,13 +1,14 @@
 import json
 
 from client_crud import Client
-from cache import SingletonCache, CacheException
+from cache import CacheException
+from client_crud.client_cache import SingletonClientCache
 
 
 def search_by_id(client: Client) -> Client:
     print("search_by_id: ", client)
 
-    cache = SingletonCache()
+    cache = SingletonClientCache()
 
     client = cache.get(client.id)
 
