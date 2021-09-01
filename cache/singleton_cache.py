@@ -34,3 +34,6 @@ class SingletonCache(metaclass=Singleton):
 
     def remove(self, key: str):
         del self.__table[key]
+
+    def to_dic(self) -> dict:
+        return self.__table
