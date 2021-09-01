@@ -28,8 +28,12 @@ def update_client(client: Client) -> Client:
     '''
     Talvez Subject-Observer resolva esse problema de duplicação
     '''
-    mosquito_client = MosquittoClient()
+    try:
+        mosquito_client = MosquittoClient()
 
-    mosquito_client.publish_client(new_client)
+        mosquito_client.publish_client(new_client)
+    except ConnectionRefusedError:
+        print("mosquitto não está ligado")
+        pass
 
     return new_client

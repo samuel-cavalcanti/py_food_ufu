@@ -20,9 +20,13 @@ def insert_client(request_client: Client) -> Client:
 
     ''' MosquiTTo retorna um Exception se não conseguir conectar devo trata-lo'''
 
-    mosquito_client = MosquittoClient()
+    try:
+        mosquito_client = MosquittoClient()
 
-    mosquito_client.publish_client(request_client)
+        mosquito_client.publish_client(request_client)
+    except ConnectionRefusedError:
+        print("mosquitto não está ligado")
+        pass
 
     return request_client
 

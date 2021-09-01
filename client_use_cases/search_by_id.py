@@ -12,6 +12,6 @@ def search_by_id(client: Client) -> Client:
     client = cache.get(client.id)
 
     if client is None:
-        raise CacheException('Cache não possui esse cliente')
+        raise CacheException('Cache não possui esse cliente')  # Cache miss
 
     return Client(**json.loads(client))

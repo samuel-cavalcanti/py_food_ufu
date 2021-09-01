@@ -1,0 +1,27 @@
+syntax = "proto3";
+
+package task;
+
+// The insert client service definition.
+service CrudTaskService {
+  // insert new client
+  rpc insert(GrpcTask) returns (GrpcTask) {}
+  // update  client
+  rpc update(GrpcTask) returns (GrpcTask) {}
+  // search client by ID
+
+  rpc search_by_cid(GrpcTask) returns (GrpcTaskList) {}
+  // delete Client by ID
+  rpc delete_by_id(GrpcTask) returns (GrpcTask) {}
+}
+
+message GrpcTaskList{
+  repeated GrpcTask tasks = 1;
+}
+
+message GrpcTask{
+  string id = 1;
+  string cid = 2;
+  string title = 3;
+  string description = 4;
+}

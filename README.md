@@ -34,6 +34,15 @@ python admin_front_end.py s --cid 37ccecd5c8b26b5b0f17fa7336b05f285804218ea0f7c0
 python admin_front_end.py d --cid 37ccecd5c8b26b5b0f17fa7336b05f285804218ea0f7c066aa25f7eb499a906f
 ```
 
+# executar testes de unidade
+
+```shell
+# executa testes de unidade nos client use cases
+python -m unittest tests/test_client_use_cases.py -v  
+# ecuta teste de unidade na implementação da cache
+python -m unittest tests/test_cache.py -v
+```
+
 ### Informações para reprodução
 
 veja que esse repositório possui a sua lista de pacotes python [requirements.txt](requirements.txt).
@@ -45,3 +54,7 @@ pip install -r requirements.txt
 ```
 
 python version __3.9.6__
+
+## configurações Grpc/proto
+Comandos usados para compilar  _.proto_ files 
+- [clientGrpc](client_crud/client_grpc/README.md)
