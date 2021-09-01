@@ -14,4 +14,4 @@ def delete_by_id(client: Client) -> Client:
 
     cache.remove(client.id)
 
-    return client
+    return c

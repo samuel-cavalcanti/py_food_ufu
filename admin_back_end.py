@@ -1,5 +1,5 @@
 from client_crud import ClientGrpcServer
-from use_cases import insert_client, update_client, search_by_id, delete_by_id
+from client_use_cases import insert_client, update_client, search_by_id, delete_by_id
 
 
 def main():
