@@ -7,8 +7,11 @@
 - Lembrar de como criar um env conda e por no readme
 - Lembrar de colocar as portas das conexões em um ENV file
 - Lembrar de colocar os nomes dos topicos na ENV file
+- Lembrar de colocar auth=True ou false na ENV file
 - Lembrar de desacoplar o mosquitto client dos casos de uso, ou pensar mais sobre.
-- Lembar de desacoplar a cache da regra de negócio tanto task quando client.
+- Lembrar de desacoplar a cache da regra de negócio tanto task quando client.
+- Lembrar de avaliar abstract factory para esse problema.
+- Lembrar de esquecer, porque já tem muita coisa pra lembrar :sweat_smile:
 
 ```shell
 #ativar o ambiente
@@ -48,6 +51,13 @@ mosquitto_sub -t clients
 
 
 ## executar testes de integração task CRUD
+
+Desabilite a autenticação
+
+```python
+#user_back_end.py
+AUTH = False
+```
 
 ```shell
 #test insert
