@@ -56,5 +56,6 @@ pip install -r requirements.txt
 python version __3.9.6__
 
 ## configurações Grpc/proto
-Comandos usados para compilar  _.proto_ files 
-- [clientGrpc](client_crud/client_grpc/README.md)
+
+Comandos usados para compilar  _.proto_ files
+[Grpc conf](Grpc_conf.md)
