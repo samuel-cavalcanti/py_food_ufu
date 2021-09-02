@@ -3,7 +3,7 @@ import json
 
 from cache import CacheException
 from client_crud import Client
-from mosquito_client import MosquittoClient
+from mosquito_client import MosquittoClient, Topic
 from client_crud.client_cache import SingletonClientCache
 
 
@@ -24,7 +24,7 @@ def insert_client(request_client: Client) -> Client:
     try:
         mosquito_client = MosquittoClient()
 
-        mosquito_client.publish_client(request_client)
+        mosquito_client.publish_client(request_client, Topic.ADDED_CLIENTS)
     except ConnectionRefusedError:
         print("mosquitto não está ligado")
         pass

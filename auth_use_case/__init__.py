@@ -1,1 +1,1 @@
-from .auth_task import auth_task, listen_clients, AuthException
+from .auth_task import auth_task, add_id, remove_id, AuthException

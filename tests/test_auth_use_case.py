@@ -1,7 +1,7 @@
 import unittest
 from task_grud import Task
 from client_crud import Client
-from auth_use_case import auth_task, listen_clients, AuthException
+from auth_use_case import auth_task, add_id, remove_id, AuthException
 
 
 class TestAuthUseCase(unittest.TestCase):
@@ -12,11 +12,16 @@ class TestAuthUseCase(unittest.TestCase):
         with self.assertRaises(AuthException):
             auth_task(task_a)
 
-        listen_clients(client)
+        add_id(client.id)
 
-        task_b = auth_task(task_a)
+        task_b = auth_task(task_a) 
 
         self.assertEqual(task_a, task_b)
+
+        remove_id(client.id)
+
+        with self.assertRaises(AuthException):
+            auth_task(task_a)
 
 
 if __name__ == '__main__':

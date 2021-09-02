@@ -25,15 +25,16 @@ def update_client(client: Client) -> Client:
     new_client_json = json.dumps(dataclasses.asdict(new_client))
     cache.add(client.id, new_client_json)
 
-    '''
-    Talvez Subject-Observer resolva esse problema de duplicação
-    '''
-    try:
-        mosquito_client = MosquittoClient()
-
-        mosquito_client.publish_client(new_client)
-    except ConnectionRefusedError:
-        print("mosquitto não está ligado")
-        pass
+    # '''
+    # Talvez Subject-Observer resolva esse problema de duplicação
+    # '''
+    # foi decidito que não é necessário publicar atualizações sobre os clientes.
+    # try:
+    #     mosquito_client = MosquittoClient()
+    #
+    #     mosquito_client.publish_client(new_client)
+    # except ConnectionRefusedError:
+    #     print("mosquitto não está ligado")
+    #     pass
 
     return new_client

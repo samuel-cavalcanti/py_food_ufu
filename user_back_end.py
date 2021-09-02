@@ -2,7 +2,7 @@ from concurrent import futures
 from task_grud import TaskGrpcServer
 from client_crud import Client
 from task_use_cases import insert_task, update_task, delete_task, search_task_by_cid
-from mosquito_client import MosquittoClient
+from mosquito_client import MosquittoClient, Topic
 import auth_use_case
 import grpc
 import json
@@ -40,14 +40,14 @@ def delete(task):
 '''Não sei pra que serve client e userdata, espero não importante'''
 
 
-def sub_clients(client, userdata, message):
-    json_bytes_client: bytes = message.payload
-    json_client = json_bytes_client.decode()
-    c = Client(**json.loads(json_client))
+def added_client(json_client):
+    client = Client(**json.loads(json_client))
+    auth_use_case.add_id(client.id)
 
-    auth_use_case.listen_clients(c)
 
-    pass
+def removed_client(json_client):
+    client = Client(**json.loads(json_client))
+    auth_use_case.remove_id(client.id)
 
 
 def main():
@@ -60,6 +60,11 @@ def main():
 
     task_grpc_server.add_to_grpc_server(server)
 
+    mosquito = MosquittoClient()
+
+    mosquito.subscribe_in_topic(callback=added_client, topic=Topic.ADDED_CLIENTS)
+    mosquito.subscribe_in_topic(callback=removed_client, topic=Topic.REMOVED_CLIENTS)
+
     port = '50053'
 
     print(f'user backend listening {port}')
@@ -67,7 +72,7 @@ def main():
     '''Porta está hard coded :O'''
     server.add_insecure_port('[::]:50053')
     server.start()
-    MosquittoClient.subscribe_in_clients(sub_clients)
+
     server.wait_for_termination()
 
 

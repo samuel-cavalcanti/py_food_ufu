@@ -1,1 +1,1 @@
-from .mosquito_client import MosquittoClient
+from .mosquito_client import MosquittoClient, Topic

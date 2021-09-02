@@ -17,11 +17,20 @@ def auth_task(task: Task) -> Task:
     raise AuthException('Usuário desconhecido')
 
 
-def listen_clients(client: Client):
-    print(f'listen_clients_list:  {client}')
+def add_id(client_id: str):
+    print(f'add_id:  {client_id}')
 
     cache = SingletonIDCache()
-    if cache.get(client.id):
+    if cache.get(client_id):
         return
 
-    cache.add(client.id, client.id)
+    cache.add(client_id, client_id)
+
+
+def remove_id(client_id: str):
+    print(f'remove_client:  {client_id}')
+
+    cache = SingletonIDCache()
+
+    if cache.get(client_id):
+        cache.remove(client_id)
