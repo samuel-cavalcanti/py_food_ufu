@@ -1,5 +1,4 @@
 from task_grud import Task
-from client_crud import Client
 from .id_cache import SingletonIDCache
 
 
