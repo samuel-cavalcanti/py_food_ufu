@@ -49,14 +49,5 @@ class ClientGrpcServer(CrudClientService):
 
         return GrpcClient(**dataclasses.asdict(response))
 
-    def serve(self):
-        server = grpc.server(futures.ThreadPoolExecutor(max_workers=10))
-        add_CrudClientServiceServicer_to_server(self, server)
-        port = '50052'
-
-        print(f'listening {port}')
-
-        '''Porta está hard coded :O'''
-        server.add_insecure_port('[::]:50052')
-        server.start()
-        server.wait_for_termination()
+    def add_to_grpc_server(self, grpc_server):
+        add_CrudClientServiceServicer_to_server(self, grpc_server)
