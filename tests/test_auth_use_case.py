@@ -14,7 +14,7 @@ class TestAuthUseCase(unittest.TestCase):
 
         add_id(client.id)
 
-        task_b = auth_task(task_a) 
+        task_b = auth_task(task_a)
 
         self.assertEqual(task_a, task_b)
 
