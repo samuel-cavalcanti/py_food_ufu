@@ -4,6 +4,8 @@ import grpc
 
 from client_crud import ClientGrpcServer
 from client_use_cases import insert_client, update_client, search_by_id, delete_by_id
+from task_grud import TaskGrpcServer
+from task_use_cases import insert_task, update_task, delete_task, search_task_by_cid
 
 
 def main():
@@ -12,9 +14,15 @@ def main():
                                           search_client_callback=search_by_id,
                                           delete_client_callback=delete_by_id)
 
+    task_grpc_server = TaskGrpcServer(insert_callback=insert_task,
+                                      update_callback=update_task,
+                                      search_callback=search_task_by_cid,
+                                      delete_callback=delete_task)
+
     server = grpc.server(futures.ThreadPoolExecutor(max_workers=10))
 
     client_grpc_server.add_to_grpc_server(server)
+    task_grpc_server.add_to_grpc_server(server)
     port = '50052'
 
     print(f'listening {port}')

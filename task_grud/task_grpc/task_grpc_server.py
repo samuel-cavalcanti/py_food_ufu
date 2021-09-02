@@ -38,3 +38,6 @@ class TaskGrpcServer(CrudTaskService):
         task = self.__grpc_task_to_task(request)
         tasks = self.__delete_callback(task)
         return GrpcTaskList([GrpcTask(**dataclasses.asdict(t)) for t in tasks])
+
+    def add_to_grpc_server(self, grpc_server):
+        add_CrudTaskServiceServicer_to_server(self, grpc_server)
