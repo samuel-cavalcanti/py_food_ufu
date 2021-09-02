@@ -8,6 +8,7 @@
 - Lembrar de colocar as portas das conexões em um ENV file
 - Lembrar de colocar os nomes dos topicos na ENV file
 - Lembrar de desacoplar o mosquitto client dos casos de uso, ou pensar mais sobre.
+- Lembar de desacoplar a cache da regra de negócio tanto task quando client.
 
 ```shell
 #ativar o ambiente
