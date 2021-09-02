@@ -90,6 +90,8 @@ python user_back_end.py
 python -m unittest tests/test_client_use_cases.py -v  
 # ecuta teste de unidade na implementação da cache
 python -m unittest tests/test_cache.py -v
+# executar todos os testes de unidade
+python -m unittest test/test_all_components.py -v
 ```
 
 ### Informações para reprodução
