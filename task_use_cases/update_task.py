@@ -11,7 +11,7 @@ import json
 def update_task(task: Task) -> Task:
     cache = SingletonTaskCache()
 
-    old_task_json = cache.get(task.id)
+    old_task_json = cache.get(task.title)
 
     if old_task_json is None:
         raise CacheException('task não existe na cache')
@@ -22,7 +22,7 @@ def update_task(task: Task) -> Task:
 
     new_task_json = json.dumps(dataclasses.asdict(new_task))
 
-    cache.remove(old_task.id)
-    cache.add(new_task.id, new_task_json)
+    cache.remove(old_task.title)
+    cache.add(new_task.title, new_task_json)
 
     return new_task

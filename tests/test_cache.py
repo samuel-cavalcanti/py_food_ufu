@@ -25,6 +25,18 @@ class TestSingletonCache(unittest.TestCase):
         value = cache.get(index)
         self.assertTrue(value is None)
 
+    def test_clear(self):
+        cache = SingletonCache()
+        key = '1313112312123'
+        value = '2'
+        cache.add(key, value)
+        cache.add(key * 2, value)
+
+        cache.clear()
+
+        self.assertEqual(cache.get(key), None)
+        self.assertEqual(cache.get(key * 2), None)
+
 
 if __name__ == '__main__':
     unittest.main()

@@ -19,7 +19,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   syntax='proto3',
   serialized_options=None,
   create_key=_descriptor._internal_create_key,
-  serialized_pb=b'\n\x0f\x63rud_task.proto\x12\x04task\"-\n\x0cGrpcTaskList\x12\x1d\n\x05tasks\x18\x01 \x03(\x0b\x32\x0e.task.GrpcTask\"G\n\x08GrpcTask\x12\n\n\x02id\x18\x01 \x01(\t\x12\x0b\n\x03\x63id\x18\x02 \x01(\t\x12\r\n\x05title\x18\x03 \x01(\t\x12\x13\n\x0b\x64\x65scription\x18\x04 \x01(\t2\xd2\x01\n\x0f\x43rudTaskService\x12*\n\x06insert\x12\x0e.task.GrpcTask\x1a\x0e.task.GrpcTask\"\x00\x12*\n\x06update\x12\x0e.task.GrpcTask\x1a\x0e.task.GrpcTask\"\x00\x12\x35\n\rsearch_by_cid\x12\x0e.task.GrpcTask\x1a\x12.task.GrpcTaskList\"\x00\x12\x30\n\x0c\x64\x65lete_by_id\x12\x0e.task.GrpcTask\x1a\x0e.task.GrpcTask\"\x00\x62\x06proto3'
+  serialized_pb=b'\n\x0f\x63rud_task.proto\x12\x04task\"-\n\x0cGrpcTaskList\x12\x1d\n\x05tasks\x18\x01 \x03(\x0b\x32\x0e.task.GrpcTask\";\n\x08GrpcTask\x12\x0b\n\x03\x63id\x18\x02 \x01(\t\x12\r\n\x05title\x18\x03 \x01(\t\x12\x13\n\x0b\x64\x65scription\x18\x04 \x01(\t2\xd2\x01\n\x0f\x43rudTaskService\x12*\n\x06insert\x12\x0e.task.GrpcTask\x1a\x0e.task.GrpcTask\"\x00\x12*\n\x06update\x12\x0e.task.GrpcTask\x1a\x0e.task.GrpcTask\"\x00\x12\x35\n\rsearch_by_cid\x12\x0e.task.GrpcTask\x1a\x12.task.GrpcTaskList\"\x00\x12\x30\n\x0c\x64\x65lete_by_id\x12\x0e.task.GrpcTask\x1a\x0e.task.GrpcTask\"\x00\x62\x06proto3'
 )
 
 
@@ -66,28 +66,21 @@ _GRPCTASK = _descriptor.Descriptor(
   create_key=_descriptor._internal_create_key,
   fields=[
     _descriptor.FieldDescriptor(
-      name='id', full_name='task.GrpcTask.id', index=0,
-      number=1, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=b"".decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-    _descriptor.FieldDescriptor(
-      name='cid', full_name='task.GrpcTask.cid', index=1,
+      name='cid', full_name='task.GrpcTask.cid', index=0,
       number=2, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=b"".decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='title', full_name='task.GrpcTask.title', index=2,
+      name='title', full_name='task.GrpcTask.title', index=1,
       number=3, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=b"".decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='description', full_name='task.GrpcTask.description', index=3,
+      name='description', full_name='task.GrpcTask.description', index=2,
       number=4, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=b"".decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
@@ -106,7 +99,7 @@ _GRPCTASK = _descriptor.Descriptor(
   oneofs=[
   ],
   serialized_start=72,
-  serialized_end=143,
+  serialized_end=131,
 )
 
 _GRPCTASKLIST.fields_by_name['tasks'].message_type = _GRPCTASK
@@ -137,8 +130,8 @@ _CRUDTASKSERVICE = _descriptor.ServiceDescriptor(
   index=0,
   serialized_options=None,
   create_key=_descriptor._internal_create_key,
-  serialized_start=146,
-  serialized_end=356,
+  serialized_start=134,
+  serialized_end=344,
   methods=[
   _descriptor.MethodDescriptor(
     name='insert',

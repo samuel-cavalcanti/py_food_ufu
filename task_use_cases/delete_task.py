@@ -10,6 +10,6 @@ def delete_task(task: Task) -> list[Task]:
     for current_task in tasks:
         if current_task.copy_with(task) == current_task:
             deleted_task.append(current_task)
-            cache.remove(current_task.id)
+            cache.remove(current_task.title)
 
     return deleted_task

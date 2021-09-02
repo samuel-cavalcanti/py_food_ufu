@@ -17,7 +17,7 @@ class TaskGrpcServer(CrudTaskService):
 
     @staticmethod
     def __grpc_task_to_task(grpc_task) -> Task:
-        return Task(id=grpc_task.id, cid=grpc_task.cid, title=grpc_task.title, description=grpc_task.description)
+        return Task(cid=grpc_task.cid, title=grpc_task.title, description=grpc_task.description)
 
     def insert(self, request, context):
         task = self.__grpc_task_to_task(request)
