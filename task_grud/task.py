@@ -14,7 +14,7 @@ class Task:
         self.description = description
 
     def __str__(self):
-        return f'id:{self.id} cid:{self.cid} title:{self.title} description:{self.description}'
+        return f' cid:{self.cid} title:{self.title} description:{self.description}'
 
     def copy_with(self, task):
         assert isinstance(task, Task)

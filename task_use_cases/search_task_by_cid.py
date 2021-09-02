@@ -5,6 +5,7 @@ from task_grud import SingletonTaskCache
 
 
 def search_task_by_cid(task: Task) -> list[Task]:
+    print('search_task_by_cid', task)
     tasks = []
 
     cache = SingletonTaskCache()

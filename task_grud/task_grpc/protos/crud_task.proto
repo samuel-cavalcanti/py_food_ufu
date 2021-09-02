@@ -12,7 +12,7 @@ service CrudTaskService {
 
   rpc search_by_cid(GrpcTask) returns (GrpcTaskList) {}
   // delete Client by ID
-  rpc delete_by_id(GrpcTask) returns (GrpcTask) {}
+  rpc delete_by_cid(GrpcTask) returns (GrpcTaskList) {}
 }
 
 message GrpcTaskList{

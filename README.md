@@ -34,6 +34,44 @@ python admin_front_end.py s --cid 37ccecd5c8b26b5b0f17fa7336b05f285804218ea0f7c0
 #test delete by id
 python admin_front_end.py d --cid 37ccecd5c8b26b5b0f17fa7336b05f285804218ea0f7c066aa25f7eb499a906f
 ```
+você também pode executar o script
+```shell
+# em um terminal
+python admin_back_end.py
+# outro terminal
+mosquitto -v
+# outro terminal
+mosquitto_sub -t clients
+# outro terminal
+./tests/test_client_with_grpc.sh
+```
+
+
+## executar testes de integração task CRUD
+
+```shell
+#test insert
+python user_front_end.py i --title "nova tarefa" --description "uma nova tarefa para fazer" --cid 123;
+python user_front_end.py i --title "nova tarefa 2" --description "uma nova tarefa para fazer 2" --cid 123;
+python user_front_end.py i --title "nova tarefa 3" --description "uma nova tarefa para fazer 3" --cid 123;
+# test update task by cid
+python user_front_end.py u --cid 123 --title "nova tarefa" --description "fiz um teste" ;
+# test search by cid
+python user_front_end.py s --cid 123;
+# test delete with title
+python user_front_end.py d --cid 123 --title "nova tarefa";
+# test delete them all
+python user_front_end.py d --cid 123
+```
+
+Você executar manualmente ou
+
+```shell
+# em outro terminal antes de executar o script
+python user_back_end.py
+# esteja na pasta raiz do repositório.
+./tests/test_tasks_with_grpc.sh
+```
 
 # executar testes de unidade
 

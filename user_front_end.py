@@ -33,17 +33,35 @@ def insert_task(task: Task):
 
 
 def update_task(task: Task):
-    print(f'update task: {task}')
-    pass
+    assert task.cid, 'é obrigatório ter cid para atualizar a tarefa'
+    assert task.title, 'é obrigatório ter um titulo para atualizar a tarefa'
+    print(f'update_task task: {task}')
+    stub = TaskGrpcStub()
+
+    result = stub.update(task)
+
+    print(result)
 
 
 def search_by_cid(task: Task):
+    assert task.cid, 'é obrigatório ter cid para buscar as tarefas'
     print(f'search_by_cid task: {task}')
+
+    stub = TaskGrpcStub()
+    result = stub.search_by_cid(task)
+
+    print(result)
+
     pass
 
 
 def delete_task(task: Task):
+    assert task.cid, 'é obrigatório ter cid para deltar as tarefas'
     print(f'delete_task task: {task}')
+    stub = TaskGrpcStub()
+    result = stub.delete_by_cid(task)
+
+    print(result)
     pass
 
 

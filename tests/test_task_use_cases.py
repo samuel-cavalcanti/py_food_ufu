@@ -14,26 +14,31 @@ class TestTaskUseCases(unittest.TestCase):
     def test_insert(self):
         task_a = Task(cid='0', title='title', description='cool description')
         task_b = Task(cid='0', title='title', description='cool description')
-        task_c = Task(cid='1', title='title1', description='cool description')
+        task_c = Task(cid='1', title='title', description='cool description')
         self.assertEqual(task_a, task_b)
         self.assertNotEqual(task_a, task_c)
 
         result = insert_task(task_a)
-        self.assertEqual(task_a.cid, result.cid)
+        self.assertEqual(task_a, result)
+
+        '''Inserindo tarefa com mesmo titulo e descrição mas diferentes cids'''
+        result = insert_task(task_c)
+        self.assertEqual(result, task_c)
 
         with self.assertRaises(CacheException):
             insert_task(task_b)
 
     def test_update(self):
         title = 'title'
+        better_description = 'better then cool description'
         task_a = Task(cid='2', title=title, description='cool description')
         insert_task(task_a)
-        new_task = Task(cid='', title=title, description='better then cool description')
+        new_task = task_a.copy_with(Task(cid='', title='', description=better_description))
         result = update_task(new_task)
 
-        task_c = Task(cid='2', title=title, description='better then cool description')
+        task_c = Task(cid='2', title=title, description=better_description)
 
-        self.assertEqual(result.description, task_c.description)
+        self.assertEqual(result, task_c)
 
         with self.assertRaises(CacheException):
             update_task(Task(cid='', title='', description='better then cool description'))

@@ -30,10 +30,10 @@ class CrudTaskServiceStub(object):
                 request_serializer=crud__task__pb2.GrpcTask.SerializeToString,
                 response_deserializer=crud__task__pb2.GrpcTaskList.FromString,
                 )
-        self.delete_by_id = channel.unary_unary(
-                '/task.CrudTaskService/delete_by_id',
+        self.delete_by_cid = channel.unary_unary(
+                '/task.CrudTaskService/delete_by_cid',
                 request_serializer=crud__task__pb2.GrpcTask.SerializeToString,
-                response_deserializer=crud__task__pb2.GrpcTask.FromString,
+                response_deserializer=crud__task__pb2.GrpcTaskList.FromString,
                 )
 
 
@@ -61,7 +61,7 @@ class CrudTaskServiceServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
-    def delete_by_id(self, request, context):
+    def delete_by_cid(self, request, context):
         """delete Client by ID
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
@@ -86,10 +86,10 @@ def add_CrudTaskServiceServicer_to_server(servicer, server):
                     request_deserializer=crud__task__pb2.GrpcTask.FromString,
                     response_serializer=crud__task__pb2.GrpcTaskList.SerializeToString,
             ),
-            'delete_by_id': grpc.unary_unary_rpc_method_handler(
-                    servicer.delete_by_id,
+            'delete_by_cid': grpc.unary_unary_rpc_method_handler(
+                    servicer.delete_by_cid,
                     request_deserializer=crud__task__pb2.GrpcTask.FromString,
-                    response_serializer=crud__task__pb2.GrpcTask.SerializeToString,
+                    response_serializer=crud__task__pb2.GrpcTaskList.SerializeToString,
             ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
@@ -154,7 +154,7 @@ class CrudTaskService(object):
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
     @staticmethod
-    def delete_by_id(request,
+    def delete_by_cid(request,
             target,
             options=(),
             channel_credentials=None,
@@ -164,8 +164,8 @@ class CrudTaskService(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/task.CrudTaskService/delete_by_id',
+        return grpc.experimental.unary_unary(request, target, '/task.CrudTaskService/delete_by_cid',
             crud__task__pb2.GrpcTask.SerializeToString,
-            crud__task__pb2.GrpcTask.FromString,
+            crud__task__pb2.GrpcTaskList.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)

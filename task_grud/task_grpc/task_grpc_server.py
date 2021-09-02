@@ -19,6 +19,12 @@ class TaskGrpcServer(CrudTaskService):
     def __grpc_task_to_task(grpc_task) -> Task:
         return Task(cid=grpc_task.cid, title=grpc_task.title, description=grpc_task.description)
 
+    @staticmethod
+    def __task_list_to_grpc_task_list(tasks: list[Task]) -> GrpcTaskList:
+        grpc_task_list = GrpcTaskList()
+        grpc_task_list.tasks.extend([GrpcTask(**dataclasses.asdict(t)) for t in tasks])
+        return grpc_task_list
+
     def insert(self, request, context):
         task = self.__grpc_task_to_task(request)
         response = self.__insert_callback(task)
@@ -32,12 +38,12 @@ class TaskGrpcServer(CrudTaskService):
     def search_by_cid(self, request, context):
         task = self.__grpc_task_to_task(request)
         tasks = self.__search_callback(task)
-        return GrpcTaskList([GrpcTask(**dataclasses.asdict(t)) for t in tasks])
+        return self.__task_list_to_grpc_task_list(tasks)
 
-    def delete_by_id(self, request, context):
+    def delete_by_cid(self, request, context):
         task = self.__grpc_task_to_task(request)
         tasks = self.__delete_callback(task)
-        return GrpcTaskList([GrpcTask(**dataclasses.asdict(t)) for t in tasks])
+        return self.__task_list_to_grpc_task_list(tasks)
 
     def add_to_grpc_server(self, grpc_server):
         add_CrudTaskServiceServicer_to_server(self, grpc_server)
