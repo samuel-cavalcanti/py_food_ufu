@@ -7,7 +7,7 @@
 - Lembrar de como criar um env conda e por no readme
 - Lembrar de colocar as portas das conexões em um ENV file
 - Lembrar de colocar os nomes dos topicos na ENV file
-- Lembrar de adicionar actions delete,search, no front end
+- Lembrar de desacoplar o mosquitto client dos casos de uso, ou pensar mais sobre.
 
 ```shell
 #ativar o ambiente
