@@ -6,9 +6,13 @@ from client_crud import Client, ClientGrpcStub
 
 
 def build_parser(actions: list[str]) -> ArgumentParser:
+    help_message = '''diga a ação desejada "i"(insert) para Inserir novos dados,
+     "u"(update) para atualizar um usuário,
+      "s"(search) buscar informações do cliente pelo seu id,
+       d(delete) remove um cliente do sistema'''
     parser = argparse.ArgumentParser(description='Adicionar clientes ADM CLI')
     parser.add_argument('action', type=str, choices=actions,
-                        help='diga a ação desejada "i"(insert) para Inserir novos dados e "u"(update) para atualizar um usuário ')
+                        help=help_message)
     parser.add_argument('--name', type=str, help='Nome do cliente', default="")
     parser.add_argument('--cpf', type=str, help='CPF do cliente', default="")
     parser.add_argument('--comida', type=str, help='comida favorida', default="")
