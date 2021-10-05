@@ -1,7 +1,6 @@
 import dataclasses
 import json
 
-from cache import CacheException
 from client_crud import Client
 from mosquito_client import MosquittoClient, Topic
 from client_crud.client_cache import SingletonClientCache
@@ -19,8 +18,6 @@ def insert_client(request_client: Client) -> Client:
     json_client = json.dumps(dataclasses.asdict(request_client))
     cache.add(request_client.id, json_client)
 
-    ''' MosquiTTo retorna um Exception se não conseguir conectar devo trata-lo'''
-
     try:
         mosquito_client = MosquittoClient()
 
@@ -30,17 +27,3 @@ def insert_client(request_client: Client) -> Client:
         pass
 
     return request_client
-
-
-def test_insert():
-    client = Client(id='321312', favorite_food='arroz', cpf='123+1238+212', name='joao')
-
-    insert_client(client)
-    try:
-        insert_client(client)
-    except CacheException as e:
-        print(e.args)
-
-
-if __name__ == '__main__':
-    test_insert()

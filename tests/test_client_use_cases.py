@@ -25,6 +25,10 @@ class TestClientUseCases(unittest.TestCase):
     def test_update(self):
         fake_id = '111111'
         client = Client(id=fake_id, favorite_food='arroz', cpf='123+1238+212', name='joao')
+
+        with self.assertRaises(CacheException):
+            update_client(client)
+
         insert_client(client)
 
         new_client = client.copy_with(Client(id=fake_id, favorite_food='macarrão', cpf='', name='', ))
