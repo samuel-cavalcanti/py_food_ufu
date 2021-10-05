@@ -2,10 +2,15 @@ import unittest
 
 from cache.singleton_cache import CacheException
 from client_crud import Client
+from client_crud.client_cache import SingletonClientCache
 from client_use_cases import insert_client, update_client, search_by_id, delete_by_id
 
 
 class TestClientUseCases(unittest.TestCase):
+
+    def setUp(self) -> None:
+        SingletonClientCache().clear()
+
     def test_insert(self):
         client = Client(id='321312', favorite_food='arroz', cpf='123+1238+212', name='joao')
         client_2 = Client(id='321312', favorite_food='arroz', cpf='123+1238+212', name='joao')
