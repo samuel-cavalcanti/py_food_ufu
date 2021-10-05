@@ -1,4 +1,4 @@
-# Py Food:
+# ~~Py Food~~ TODO GRUD:
 
 [descrição do projeto](https://lasarojc.github.io/ds_notes/projeto/)
 
