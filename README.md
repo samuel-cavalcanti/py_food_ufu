@@ -4,6 +4,7 @@
 
 
 [![codecov](https://codecov.io/gh/samuel-cavalcanti/py_food_ufu/branch/etapa1/graph/badge.svg?token=CL5JBMV1A4)](https://codecov.io/gh/samuel-cavalcanti/py_food_ufu)
+[![Build Status](https://app.travis-ci.com/samuel-cavalcanti/py_food_ufu.svg?branch=etapa_1)](https://app.travis-ci.com/samuel-cavalcanti/py_food_ufu)
 
 ### todos
 
