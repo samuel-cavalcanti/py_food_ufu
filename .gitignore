@@ -1,3 +1,4 @@
 .idea
 __pycache__
 insert_client/__pycache__
+.coverage
