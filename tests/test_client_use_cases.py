@@ -55,6 +55,11 @@ class TestClientUseCases(unittest.TestCase):
     def test_delete(self):
         fake_id = '33333'
         client = Client(id=fake_id, favorite_food='arroz', cpf='123+1238+212', name='joao')
+
+        with self.assertRaises(CacheException):
+            search_client = Client(id=fake_id, favorite_food='', cpf='', name='', )
+            delete_by_id(search_client)
+
         insert_client(client)
         search_client = Client(id=fake_id, favorite_food='', cpf='', name='', )
         result = delete_by_id(search_client)
