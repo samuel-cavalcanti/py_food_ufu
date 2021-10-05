@@ -2,20 +2,20 @@
 
 [descrição do projeto](https://lasarojc.github.io/ds_notes/projeto/)
 
-
-[![codecov](https://codecov.io/gh/samuel-cavalcanti/py_food_ufu/branch/etapa1/graph/badge.svg?token=CL5JBMV1A4)](https://codecov.io/gh/samuel-cavalcanti/py_food_ufu)
 [![Build Status](https://app.travis-ci.com/samuel-cavalcanti/py_food_ufu.svg?branch=etapa_1)](https://app.travis-ci.com/samuel-cavalcanti/py_food_ufu)
+
+[Cobertura de testes da etapa 1](https://codecov.io/gh/samuel-cavalcanti/py_food_ufu/tree/etapa_1)
+
 
 ### todos
 
-- Lembrar de como criar um env conda e por no readme
 - Lembrar de colocar as portas das conexões em um ENV file
 - Lembrar de colocar os nomes dos topicos na ENV file
 - Lembrar de colocar auth=True ou false na ENV file
 - Lembrar de desacoplar o mosquitto client dos casos de uso, ou pensar mais sobre.
 - Lembrar de desacoplar a cache da regra de negócio tanto task quando client.
 - Lembrar de avaliar abstract factory para esse problema.
-- Lembrar de esquecer, porque já tem muita coisa pra lembrar :sweat_smile:
+
 
 ```shell
 #ativar o ambiente
