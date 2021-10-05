@@ -1,8 +1,8 @@
 import unittest
 
-from task_grud import Task, SingletonTaskCache
-from task_use_cases import insert_task, update_task, search_task_by_cid, delete_task
-from cache import CacheException
+from todo_grud.task_grud import Task, SingletonTaskCache
+from todo_grud.task_use_cases import insert_task, update_task, search_task_by_cid, delete_task
+from todo_grud.cache import CacheException
 
 
 class TestTaskUseCases(unittest.TestCase):

@@ -1,9 +1,9 @@
 from concurrent import futures
-from task_grud import TaskGrpcServer
-from client_crud import Client
-from task_use_cases import insert_task, update_task, delete_task, search_task_by_cid
-from mosquito_client import MosquittoClient, Topic
-import auth_use_case
+from todo_grud.task_grud import TaskGrpcServer
+from todo_grud.client_crud import Client
+from todo_grud.task_use_cases import insert_task, update_task, delete_task, search_task_by_cid
+from todo_grud.mosquito_client import MosquittoClient, Topic
+from todo_grud import auth_use_case
 import grpc
 import json
 

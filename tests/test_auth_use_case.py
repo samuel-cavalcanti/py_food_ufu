@@ -1,7 +1,7 @@
 import unittest
-from task_grud import Task
-from client_crud import Client
-from auth_use_case import auth_task, add_id, remove_id, AuthException
+from todo_grud.task_grud import Task
+from todo_grud.client_crud import Client
+from todo_grud.auth_use_case import auth_task, add_id, remove_id, AuthException
 
 
 class TestAuthUseCase(unittest.TestCase):

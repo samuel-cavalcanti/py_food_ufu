@@ -1,6 +1,6 @@
 import unittest
 
-from cache.singleton_cache import SingletonCache, CacheException
+from todo_grud.cache.singleton_cache import SingletonCache, CacheException
 
 
 class TestSingletonCache(unittest.TestCase):

@@ -1,4 +1,4 @@
-from task_grud import Task
+from todo_grud.task_grud import Task
 from .id_cache import SingletonIDCache
 
 

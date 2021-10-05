@@ -1,9 +1,9 @@
 import unittest
 
-from cache.singleton_cache import CacheException
-from client_crud import Client
-from client_crud.client_cache import SingletonClientCache
-from client_use_cases import insert_client, update_client, search_by_id, delete_by_id
+from todo_grud.cache.singleton_cache import CacheException
+from todo_grud.client_crud import Client
+from todo_grud.client_crud.client_cache import SingletonClientCache
+from todo_grud.client_use_cases import insert_client, update_client, search_by_id, delete_by_id
 
 
 class TestClientUseCases(unittest.TestCase):

@@ -2,7 +2,7 @@ import dataclasses
 
 import paho.mqtt.client as mosquito_client
 from paho.mqtt.client import MQTTMessage
-from client_crud import Client
+from todo_grud.client_crud import Client
 import json
 from enum import Enum
 

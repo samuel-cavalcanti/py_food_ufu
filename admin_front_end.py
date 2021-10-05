@@ -2,7 +2,7 @@ import argparse
 from argparse import ArgumentParser
 import hashlib
 
-from client_crud import Client, ClientGrpcStub
+from todo_grud.client_crud import Client, ClientGrpcStub
 
 
 def build_parser(actions: list[str]) -> ArgumentParser:

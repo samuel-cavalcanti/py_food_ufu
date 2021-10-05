@@ -1,7 +1,7 @@
 import dataclasses
 import json
-from client_crud import Client, SingletonClientCache
-from cache import CacheException
+from todo_grud.client_crud import Client, SingletonClientCache
+from todo_grud.cache import CacheException
 
 def update_client(client: Client) -> Client:
     print("update_client: ", client)

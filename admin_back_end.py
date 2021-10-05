@@ -2,8 +2,8 @@ from concurrent import futures
 
 import grpc
 
-from client_crud import ClientGrpcServer
-from client_use_cases import insert_client, update_client, search_by_id, delete_by_id
+from todo_grud.client_crud import ClientGrpcServer
+from todo_grud.client_use_cases import insert_client, update_client, search_by_id, delete_by_id
 
 
 def main():

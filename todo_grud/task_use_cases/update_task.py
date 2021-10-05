@@ -1,10 +1,8 @@
 import dataclasses
 
-from task_grud import Task
-
-from task_grud import Task
-from task_grud import SingletonTaskCache
-from cache import CacheException
+from todo_grud.task_grud import Task
+from todo_grud.task_grud import SingletonTaskCache
+from todo_grud.cache import CacheException
 import json
 
 

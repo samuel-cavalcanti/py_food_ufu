@@ -1,4 +1,4 @@
-from task_grud import Task, SingletonTaskCache
+from todo_grud.task_grud import Task, SingletonTaskCache
 
 from .search_task_by_cid import search_task_by_cid
 

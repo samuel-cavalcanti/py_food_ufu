@@ -1,8 +1,8 @@
 import json
 
-from client_crud import Client
-from cache import CacheException
-from client_crud.client_cache import SingletonClientCache
+from todo_grud.client_crud import Client
+from todo_grud.cache import CacheException
+from todo_grud.client_crud.client_cache import SingletonClientCache
 
 
 def search_by_id(client: Client) -> Client:

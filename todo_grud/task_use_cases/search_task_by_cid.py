@@ -1,7 +1,7 @@
 import json
 
-from task_grud import Task
-from task_grud import SingletonTaskCache
+from todo_grud.task_grud import Task
+from todo_grud.task_grud import SingletonTaskCache
 
 
 def search_task_by_cid(task: Task) -> list[Task]:
