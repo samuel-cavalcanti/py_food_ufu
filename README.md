@@ -2,6 +2,9 @@
 
 [descrição do projeto](https://lasarojc.github.io/ds_notes/projeto/)
 
+
+[![codecov](https://codecov.io/gh/samuel-cavalcanti/py_food_ufu/branch/etapa1/graph/badge.svg?token=CL5JBMV1A4)](https://codecov.io/gh/samuel-cavalcanti/py_food_ufu)
+
 ### todos
 
 - Lembrar de como criar um env conda e por no readme

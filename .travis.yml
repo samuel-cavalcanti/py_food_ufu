@@ -1,4 +1,9 @@
 language: python
+
+env:
+  global:
+    - CODECOV_TOKEN='6cad1bd5-233c-47bc-aecc-2021b2d6cdda'
+
 python:
   - "3.9"
 # command to install dependencies
