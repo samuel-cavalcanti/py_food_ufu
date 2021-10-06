@@ -3,6 +3,7 @@
 [descrição do projeto](https://lasarojc.github.io/ds_notes/projeto/)
 
 [![Build Status](https://app.travis-ci.com/samuel-cavalcanti/py_food_ufu.svg?branch=etapa_1)](https://app.travis-ci.com/samuel-cavalcanti/py_food_ufu)
+[![codecov](https://codecov.io/gh/samuel-cavalcanti/py_food_ufu/branch/main/graph/badge.svg?token=CL5JBMV1A4)](https://codecov.io/gh/samuel-cavalcanti/py_food_ufu)
 
 [Cobertura de testes da etapa 1](https://codecov.io/gh/samuel-cavalcanti/py_food_ufu/tree/etapa_1)
 
@@ -10,10 +11,7 @@
 ### todos
 
 - Lembrar de colocar as portas das conexões em um ENV file
-- Lembrar de colocar os nomes dos topicos na ENV file
 - Lembrar de colocar auth=True ou false na ENV file
-- Lembrar de desacoplar o mosquitto client dos casos de uso, ou pensar mais sobre.
-- Lembrar de desacoplar a cache da regra de negócio tanto task quando client.
 - Lembrar de avaliar abstract factory para esse problema.
 
 
@@ -26,12 +24,6 @@ conda activate py_food
 
 ```shell
 python admin_back_end.py
-# outro terminal
-mosquitto -v
-# outro terminal
-mosquitto_sub -t clients
-# outro terminal
-
 #teste insert
 python admin_front_end.py i --cpf 123345 --name "Samuel Cavalcanti" --comida "pão de queijo"
 #test update
@@ -45,10 +37,6 @@ você também pode executar o script
 ```shell
 # em um terminal
 python admin_back_end.py
-# outro terminal
-mosquitto -v
-# outro terminal
-mosquitto_sub -t clients
 # outro terminal
 ./tests/test_client_with_grpc.sh
 ```
