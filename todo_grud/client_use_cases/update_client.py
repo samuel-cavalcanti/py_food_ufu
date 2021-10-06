@@ -1,12 +1,15 @@
 import dataclasses
 import json
-from todo_grud.client_crud import Client, SingletonClientCache
+
+from todo_grud.cache.cache_repository import CacheRepository
+from .client import Client
 from todo_grud.cache import CacheException
+
 
 def update_client(client: Client) -> Client:
     print("update_client: ", client)
 
-    cache = SingletonClientCache()
+    cache = CacheRepository.client_cache()
 
     old_client_json: str = cache.get(client.id)
 

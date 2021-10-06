@@ -1,14 +1,14 @@
 import dataclasses
 
-from todo_grud.task_grud import Task
-from todo_grud.task_grud import SingletonTaskCache
+from todo_grud.cache.cache_repository import CacheRepository
+from .task import Task
 from todo_grud.cache import CacheException
 import json
 
 
 def update_task(task: Task) -> Task:
     print('update_task', task)
-    cache = SingletonTaskCache()
+    cache = CacheRepository.task_cache()
 
     old_task_json = cache.get(f'{task.title}-{task.cid}')
 

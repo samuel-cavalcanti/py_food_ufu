@@ -3,7 +3,7 @@ import dataclasses
 from .generated_classes.crud_client_pb2_grpc import CrudClientService, add_CrudClientServiceServicer_to_server
 from .generated_classes.crud_client_pb2 import GrpcClient
 
-from ..client import Client
+from todo_grud.client_use_cases.client import Client
 
 
 class ClientGrpcServer(CrudClientService):

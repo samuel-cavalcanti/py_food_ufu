@@ -1,4 +1,5 @@
-from todo_grud.cache import SingletonCache
+from .singleton_cache import SingletonCache
+
 
 
 class SingletonIDCache(SingletonCache):

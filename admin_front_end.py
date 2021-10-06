@@ -2,7 +2,8 @@ import argparse
 from argparse import ArgumentParser
 import hashlib
 
-from todo_grud.client_crud import Client, ClientGrpcStub
+from todo_grud.grpc import ClientGrpcStub
+from todo_grud.client_use_cases import Client
 
 
 def build_parser(actions: list[str]) -> ArgumentParser:
@@ -16,7 +17,7 @@ def build_parser(actions: list[str]) -> ArgumentParser:
     parser.add_argument('--name', type=str, help='Nome do cliente', default="")
     parser.add_argument('--cpf', type=str, help='CPF do cliente', default="")
     parser.add_argument('--comida', type=str, help='comida favorida', default="")
-    parser.add_argument('--cid', type=str, help='CID(client id) indentificador único para cada cliente', default="")
+    parser.add_argument('--cid', type=str, help='CID(client id) inden,tificador único para cada cliente', default="")
 
     return parser
 

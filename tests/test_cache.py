@@ -1,22 +1,22 @@
 import unittest
 
-from todo_grud.cache.singleton_cache import SingletonCache, CacheException
+from todo_grud.cache.singletons.singleton_cache import SingletonCache, CacheException
 
 
 class TestSingletonCache(unittest.TestCase):
 
     @staticmethod
     def __test_add(index, value):
-        cache = SingletonCache()
+        cache = SingletonCache.instance()
         cache.add(index, value)
 
     def test_cache(self):
         index = '0'
         value = 'test'
         self.__test_add(index, value)
-        cache = SingletonCache()
+        cache = SingletonCache.instance()
         cache_value = cache.get(index)
-        self.assertTrue(cache_value == value)
+        self.assertTrue(cache_value == value, f"cache_value: {cache_value} value : {value}")
 
         with self.assertRaises(CacheException):
             cache.add(index, value)

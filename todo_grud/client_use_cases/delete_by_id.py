@@ -1,15 +1,14 @@
 import json
 
-from todo_grud.client_crud import Client
+from todo_grud.cache.cache_repository import CacheRepository
+from .client import Client
 from todo_grud.cache import CacheException
-from todo_grud.client_crud import SingletonClientCache
-from todo_grud.mosquito_client import MosquittoClient, Topic
 
 
 def delete_by_id(client: Client) -> Client:
     print("delete_by_id: ", client)
 
-    cache = SingletonClientCache()
+    cache = CacheRepository.client_cache()
 
     c: str = cache.get(client.id)
 
@@ -18,15 +17,5 @@ def delete_by_id(client: Client) -> Client:
 
     removed_client = Client(**json.loads(c))
     cache.remove(client.id)
-
-    ''' MosquiTTo retorna um Exception se não conseguir conectar devo trata-lo'''
-
-    try:
-        mosquito_client = MosquittoClient()
-
-        mosquito_client.publish_client(removed_client, Topic.REMOVED_CLIENTS)
-    except ConnectionRefusedError:
-        print("mosquitto não está ligado")
-        pass
 
     return removed_client

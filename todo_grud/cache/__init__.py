@@ -1,1 +1,3 @@
-from .singleton_cache import SingletonCache, CacheException
+from .cache_repository import CacheRepository
+from .cache import CacheException
+from .cache import Cache

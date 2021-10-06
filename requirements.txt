@@ -4,4 +4,5 @@ grpcio==1.39.0
 grpcio-tools==1.39.0
 paho-mqtt==1.5.1
 protobuf==3.17.3
+pysyncobj==0.3.10
 six==1.16.0

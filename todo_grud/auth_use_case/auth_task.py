@@ -1,5 +1,5 @@
-from todo_grud.task_grud import Task
-from .id_cache import SingletonIDCache
+from todo_grud.task_use_cases import Task
+from ..cache.cache import Cache
 
 
 class AuthException(Exception):
@@ -7,29 +7,33 @@ class AuthException(Exception):
         super().__init__(msg)
 
 
-def auth_task(task: Task) -> Task:
-    print(f'auth_task {task}')
-    cache = SingletonIDCache()
-    if cache.get(task.cid):
-        return task
+class AuthTasker:
+    __cache: Cache
 
-    raise AuthException('Usuário desconhecido')
+    def __init__(self, cache: Cache):
+        self.__cache = cache
 
+    def auth_task(self, task: Task) -> Task:
+        print(f'auth_task {task}')
 
-def add_id(client_id: str):
-    print(f'add_id:  {client_id}')
+        print(f"in self.__cache: {self.__cache.get(task.cid)}")
+        if self.__cache.get(task.cid):
+            return task
 
-    cache = SingletonIDCache()
-    if cache.get(client_id):
-        return
+        raise AuthException('Usuário desconhecido')
 
-    cache.add(client_id, client_id)
+    def add_id(self, client_id: str):
+        print(f'add_id:  {client_id}')
 
+        if self.__cache.get(client_id):
+            return
 
-def remove_id(client_id: str):
-    print(f'remove_client:  {client_id}')
+        self.__cache.add(client_id, client_id)
 
-    cache = SingletonIDCache()
+        print(f"added: {self.__cache.get(client_id)}")
 
-    if cache.get(client_id):
-        cache.remove(client_id)
+    def remove_id(self, client_id: str):
+        print(f'remove_client:  {client_id}')
+
+        if self.__cache.get(client_id):
+            self.__cache.remove(client_id)

@@ -1,14 +1,14 @@
 import unittest
 
-from todo_grud.task_grud import Task, SingletonTaskCache
+from todo_grud.task_use_cases import Task
 from todo_grud.task_use_cases import insert_task, update_task, search_task_by_cid, delete_task
-from todo_grud.cache import CacheException
+from todo_grud.cache import CacheException, CacheRepository
 
 
 class TestTaskUseCases(unittest.TestCase):
 
     def setUp(self):
-        cache = SingletonTaskCache()
+        cache = CacheRepository.task_cache()
         cache.clear()
 
     def test_insert(self):

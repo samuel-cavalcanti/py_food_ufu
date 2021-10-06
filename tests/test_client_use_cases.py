@@ -1,15 +1,14 @@
 import unittest
 
-from todo_grud.cache.singleton_cache import CacheException
-from todo_grud.client_crud import Client
-from todo_grud.client_crud.client_cache import SingletonClientCache
+from todo_grud.cache import CacheRepository, CacheException
+from todo_grud.client_use_cases import Client
 from todo_grud.client_use_cases import insert_client, update_client, search_by_id, delete_by_id
 
 
 class TestClientUseCases(unittest.TestCase):
 
     def setUp(self) -> None:
-        SingletonClientCache().clear()
+        CacheRepository.client_cache().clear()
 
     def test_insert(self):
         client = Client(id='321312', favorite_food='arroz', cpf='123+1238+212', name='joao')

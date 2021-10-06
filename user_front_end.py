@@ -1,5 +1,6 @@
 from argparse import ArgumentParser
-from todo_grud.task_grud import Task, TaskGrpcStub
+from todo_grud.grpc import TaskGrpcStub
+from todo_grud.task_use_cases import Task
 
 
 def build_parser(actions: list[str]) -> ArgumentParser:

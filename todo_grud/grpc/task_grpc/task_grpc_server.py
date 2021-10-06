@@ -3,7 +3,7 @@ import dataclasses
 from .generated_classes.crud_task_pb2 import GrpcTask, GrpcTaskList
 from .generated_classes.crud_task_pb2_grpc import CrudTaskService, add_CrudTaskServiceServicer_to_server
 
-from ..task import Task
+from todo_grud.task_use_cases.task import Task
 
 
 class TaskGrpcServer(CrudTaskService):
