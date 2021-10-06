@@ -1,6 +1,6 @@
 import unittest
 
-from todo_grud.cache import CacheRepository
+from todo_grud.cache import CacheRepository,CacheException
 from todo_grud.task_use_cases import Task
 from todo_grud.client_use_cases import Client
 from todo_grud.auth_use_case import AuthTasker, AuthException
@@ -16,6 +16,9 @@ class TestAuthUseCase(unittest.TestCase):
             auth_tasker.auth_task(task_a)
 
         auth_tasker.add_id(client.id)
+
+        with self.assertRaises(CacheException):
+            auth_tasker.add_id(client.id)
 
         task_b = auth_tasker.auth_task(task_a)
 

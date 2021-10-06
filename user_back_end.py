@@ -10,7 +10,6 @@ import json
 
 AUTH = True
 
-'''Talvez seja a hora de avaliar um abstract factory CRUD ? '''
 
 auth_tasker = AuthTasker(CacheRepository.user_backend_sync_cache())
 

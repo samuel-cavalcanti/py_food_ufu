@@ -4,13 +4,6 @@ from todo_grud.cache.cache import Cache, CacheException
 
 class SingletonCache(Cache):
     __slots__ = ['__table']
-    __instance = None
-
-    @staticmethod
-    def instance():
-        if SingletonCache.__instance is None:
-            SingletonCache.__instance = SingletonCache()
-        return SingletonCache.__instance
 
     def __init__(self):
         self.__table = dict()

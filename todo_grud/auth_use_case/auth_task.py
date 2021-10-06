@@ -25,9 +25,6 @@ class AuthTasker:
     def add_id(self, client_id: str):
         print(f'add_id:  {client_id}')
 
-        if self.__cache.get(client_id):
-            return
-
         self.__cache.add(client_id, client_id)
 
         print(f"added: {self.__cache.get(client_id)}")

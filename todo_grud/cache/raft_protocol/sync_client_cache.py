@@ -13,19 +13,19 @@ class SyncClientIDCache(Cache):
         self.__dict_of_ids = ReplDict()
         self.__sync = SyncObj(current_node, another_nodes, consumers=[self.__dict_of_ids])
 
+    def get_leader(self):
+        return self.__sync._getLeader()
+
     def get(self, index: str):
-        print(self.to_dic())
-        self.__dict_of_ids.get(index)
+        return self.__dict_of_ids.get(index)
 
     def add(self, key: str, value: Any):
-        if self.__dict_of_ids.get(key):
+        if self.get(key):
             raise CacheException(f"{key} exist !!")
-        is_set = self.__dict_of_ids.set(key, value, sync=True)
-        print(f"is add: {self.__dict_of_ids.get(key)}")
-        print(f"is set: {is_set}")
+        self.__dict_of_ids.set(key, value, sync=True)
 
     def remove(self, key: str):
-        self.__dict_of_ids[key] = None
+        self.__dict_of_ids.set(key, None, sync=True)
 
     def clear(self):
         self.__dict_of_ids.clear()
