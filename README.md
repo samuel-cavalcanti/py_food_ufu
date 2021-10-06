@@ -47,10 +47,10 @@ python user_back_end.py
 ```shell
 cd tests/raft_test
 
-python counter.py  3000 4000 5000 
+python counter.py  3000 4000;
 
 # outro terminal
-python counter.py  4000 3000 5000;
+python counter.py  4000 3000;
 
 ```
 
